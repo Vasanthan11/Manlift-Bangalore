@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enquiry Form - Manlift Bangalore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Raleway font -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-brown: #521C0D;
+      --accent-orange: #FF9B45;
+      --accent-red: #D5451B;
+      --soft-cream: #F4E7E1;
+      --white: #ffffff;
+      --black: #000000;
+    }
+
+    body {
+      font-family: "Raleway", system-ui, sans-serif;
+      background: var(--soft-cream);
+      color: var(--deep-brown);
+    }
+
+    /* SECTION WRAPPER */
+    .form-section {
+      width: 100%;
+      padding: 3.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top left, rgba(255,155,69,0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(82,28,13,0.12), transparent 60%),
+        var(--soft-cream);
+    }
+
+    .form-shell {
+      width: 100%;
+      max-width: 1120px;
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
+      display: grid;
+      grid-template-columns: 1.05fr 1.2fr;
+      position: relative;
+    }
+
+    /* coloured strip at top */
+    .form-shell::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
+    }
+
+    /* LEFT INFO PANEL */
+    .form-info {
+      padding: 2.6rem 2.2rem 2.4rem 2.4rem;
+      background: linear-gradient(145deg, #3b1308, var(--deep-brown));
+      color: var(--soft-cream);
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      position: relative;
+    }
+
+    .info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(244, 231, 225, 0.08);
+      border: 1px solid rgba(244, 231, 225, 0.4);
+    }
+
+    .info-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+    }
+
+    .info-heading {
+      font-size: 1.55rem;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .info-heading span {
+      color: var(--accent-orange);
+    }
+
+    .info-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.94;
+    }
+
+    .info-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .info-chip {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 231, 225, 0.4);
+      background: rgba(244, 231, 225, 0.06);
+    }
+
+    .info-contact {
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.78;
+      margin-top: 0.8rem;
+    }
+
+    .info-contact a {
+      color: var(--soft-cream);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .info-contact a:hover {
+      color: var(--accent-orange);
+    }
+
+    /* RIGHT FORM PANEL */
+    .form-panel {
+      padding: 2.7rem 2.8rem 2.4rem;
+      background: var(--white);
+    }
+
+    .form-tag {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(82, 28, 13, 0.75);
+    }
+
+    .form-title {
+      font-size: 1.45rem;
+      margin: 0.35rem 0 0.4rem;
+      color: var(--deep-brown);
+    }
+
+    .form-sub {
+      font-size: 0.86rem;
+      margin-bottom: 1.7rem;
+      color: rgba(82, 28, 13, 0.86);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.15rem 1.4rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+    }
+
+    .required {
+      color: #c0392b;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 0.87rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #e0d1c8;
+      background: #fdf8f4;
+      color: var(--deep-brown);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(82, 28, 13, 0.55);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent-orange);
+      background: var(--white);
+      box-shadow: 0 0 0 2px rgba(255, 155, 69, 0.28);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .submit-row {
+      grid-column: 1 / -1;
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .btn-submit {
+      padding: 0.85rem 1.9rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+      color: var(--white);
+      transition: background 0.22s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #b53414, var(--accent-orange));
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
+    .submit-note {
+      font-size: 0.78rem;
+      color: rgba(82, 28, 13, 0.7);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .form-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .form-info {
+        order: 2;
+        padding: 2.1rem 1.8rem;
+      }
+
+      .form-panel {
+        order: 1;
+        padding: 2.2rem 1.7rem 2rem;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .form-section {
+        padding: 2.5rem 1.1rem;
+      }
+
+      .form-panel {
+        padding: 2rem 1.4rem;
+      }
+
+      .form-info {
+        padding: 1.9rem 1.4rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="form-section">
+  <div class="form-shell">
+
+    <!-- LEFT INFO PANEL -->
+    <aside class="form-info">
+      <div class="info-badge">
+        <span class="info-dot"></span>
+        <span>Trusted manlift rentals</span>
+      </div>
+
+      <h2 class="info-heading">
+        Elevated access solutions<br>
+        for projects <span>across Bangalore</span>
+      </h2>
+
+      <p class="info-text">
+        Boom lifts, scissor lifts and man lifts on short-term and long-term rental.
+        Share your requirement and our team will respond with a tailored quote and
+        the right machine for your site.
+      </p>
+
+      <div class="info-chips">
+        <span class="info-chip">Same-day response</span>
+        <span class="info-chip">On-site delivery</span>
+        <span class="info-chip">Operator support</span>
+      </div>
+
+      <div class="info-contact">
+        <div class="info-label">Call us</div>
+        <a href="tel:+919999999999">+91 99999 99999</a>
+
+        <div class="info-label">Email</div>
+        <a href="mailto:info@manliftbangalore.com">info@manliftbangalore.com</a>
+
+        <div class="info-label">Working hours</div>
+        <strong>Mon – Sat, 9:00 AM – 7:00 PM</strong>
+      </div>
+    </aside>
+
+    <!-- RIGHT FORM PANEL -->
+    <div class="form-panel">
+      <div class="form-tag">Enquiry form</div>
+      <h3 class="form-title">Tell us about your lift requirement</h3>
+      <p class="form-sub">
+        Fill in the details below and we’ll get back with availability, pricing,
+        and the best option for your site.
+      </p>
+
+      <form action="form-handler.php" method="post">
+        <div class="form-group">
+          <label for="full_name">Full Name <span class="required">*</span></label>
+          <input type="text" id="full_name" name="full_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Contact Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Area / Location</label>
+          <input type="text" id="location" name="location">
+        </div>
+
+        <div class="form-group full-width">
+          <label for="equipment">Select Equipment</label>
+          <select id="equipment" name="equipment">
+            <option value="">-- Select equipment --</option>
+            <option value="Boom Lift">Boom Lift</option>
+            <option value="Scissor Lift">Scissor Lift</option>
+            <option value="Man Lift">Man Lift</option>
+            <option value="Cherry Picker">Cherry Picker</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="message">Request to get quote</label>
+          <textarea id="message" name="message"
+            placeholder="Share working height, site type, rental duration, and any other details."></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">
+            Click here to get your quote
+          </button>
+          <p class="submit-note">
+            Our team usually responds within a few working hours.
+          </p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

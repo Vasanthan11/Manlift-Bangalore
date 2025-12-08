@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Navbar - Manlift Bangalore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Raleway font -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       GLOBAL RESET + VARIABLES (NAV ONLY)
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-brown: #521C0D;
+      --accent-orange: #FF9B45;
+      --accent-red: #D5451B;
+      --soft-cream: #F4E7E1;
+      --white: #ffffff;
+      --black: #000000;
+    }
+
+    /* =========================================================
+       HEADER / NAVBAR
+       ========================================================= */
+    .site-header {
+      width: 100%;
+      background: var(--deep-brown);
+      color: var(--white);
+      position: fixed;     /* FIXED NAVBAR */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.35rem 1.2rem 0.55rem;
+    }
+
+    .nav-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* LOGO */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--soft-cream);
+      flex-shrink: 0;
+      font-family: "Raleway", system-ui, sans-serif;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 20% 20%, var(--accent-orange), var(--deep-brown));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo-subtitle {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    /* CENTER LINKS */
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+      font-size: 0.95rem;
+      font-family: "Raleway", system-ui, sans-serif;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft-cream);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);   /* only colour change */
+    }
+
+    .nav-links a.active-link {
+      color: var(--accent-orange);
+    }
+
+    /* RIGHT CALL BLOCK */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      font-family: "Raleway", system-ui, sans-serif;
+    }
+
+    .nav-call-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1.1;
+    }
+
+    .nav-call-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+    }
+
+    .nav-call-number {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .nav-call-btn {
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-red);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-call-btn:hover {
+      background-color: var(--accent-orange);
+      color: var(--deep-brown);
+    }
+
+    /* HAMBURGER (MOBILE) */
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .nav-toggle-box {
+      width: 20px;
+      height: 16px;
+      position: relative;
+    }
+
+    .nav-toggle-bar,
+    .nav-toggle-bar::before,
+    .nav-toggle-bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--soft-cream);
+      transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease, bottom 0.2s ease;
+    }
+
+    .nav-toggle-bar {
+      top: 7px;
+    }
+
+    .nav-toggle-bar::before {
+      top: -6px;
+    }
+
+    .nav-toggle-bar::after {
+      bottom: -6px;
+    }
+
+    /* Transform to X when menu open */
+    .site-header.nav-open .nav-toggle-bar {
+      transform: rotate(45deg);
+    }
+
+    .site-header.nav-open .nav-toggle-bar::before {
+      top: 0;
+      transform: rotate(-90deg);
+    }
+
+    .site-header.nav-open .nav-toggle-bar::after {
+      bottom: 0;
+      opacity: 0;
+    }
+
+    /* MOBILE OFF-CANVAS MENU (RIGHT SLIDE) */
+    .mobile-menu {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .nav-center {
+        display: none;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 64px;
+        right: -100%;
+        width: 75%;
+        max-width: 340px;
+        height: calc(100vh - 64px);
+        background: #3a1408;
+        box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+        transition: right 0.25s ease;
+        z-index: 1999;
+      }
+
+      .site-header.nav-open .mobile-menu {
+        right: 0;
+      }
+
+      .mobile-menu-inner {
+        padding: 1.8rem 1.4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        font-family: "Raleway", system-ui, sans-serif;
+      }
+
+      .mobile-menu-inner a {
+        text-decoration: none;
+        color: var(--soft-cream);
+        font-weight: 600;
+        font-size: 0.98rem;
+        letter-spacing: 0.03em;
+        transition: color 0.2s ease;
+      }
+
+      .mobile-menu-inner a:hover {
+        color: var(--accent-orange);
+      }
+
+      .mobile-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0.8rem 0 0.6rem;
+      }
+
+      .mobile-call-btn {
+        margin-top: 0.4rem;
+        width: 100%;
+      }
+
+      .mobile-call-note {
+        margin-top: 0.6rem;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-logo-title {
+        font-size: 0.9rem;
+      }
+      .nav-logo-subtitle {
+        font-size: 0.64rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrapper">
+      <div class="nav-inner">
+        <!-- LEFT: LOGO -->
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">MB</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-title">Manlift Bangalore</span>
+            <span class="nav-logo-subtitle">Boom • Scissor • Man Lifts</span>
+          </div>
+        </a>
+
+        <!-- CENTER: LINKS (DESKTOP/TABLET) -->
+        <div class="nav-center">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="boom-lift-rentals.html">Boom Lift Rentals</a></li>
+            <li><a href="scissor-lift-rentals.html">Scissor Lift Rentals</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: CALL -->
+        <div class="nav-right">
+          <!-- <div class="nav-call-text">
+            <span class="nav-call-label">Need a lift?</span>
+            <span class="nav-call-number">+91 00000 00000</span>
+          </div> -->
+          <a href="tel:+910000000000" class="nav-call-btn">
+            Click here to call us
+          </a>
+        </div>
+
+        <!-- HAMBURGER -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-box">
+            <span class="nav-toggle-bar"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE OFF-CANVAS MENU -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu-inner">
+        <a href="index.html">Home</a>
+        <a href="boom-lift-rentals.html">Boom Lift Rentals</a>
+        <a href="scissor-lift-rentals.html">Scissor Lift Rentals</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+
+        <div class="mobile-divider"></div>
+
+        <a href="tel:+910000000000" class="nav-call-btn mobile-call-btn">
+          Click here to call us
+        </a>
+
+        <p class="mobile-call-note">
+          Quick boom, scissor and man lift rentals across Bangalore. Call now for availability and quotes.
+        </p>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    (function () {
+      var header = document.getElementById('siteHeader');
+      var toggle = document.getElementById('navToggle');
+      var mobile = document.getElementById('mobileMenu');
+
+      if (!header || !toggle || !mobile) return;
+
+      toggle.addEventListener('click', function () {
+        header.classList.toggle('nav-open');
+      });
+
+      mobile.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.tagName.toLowerCase() === 'a') {
+          header.classList.remove('nav-open');
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 960) {
+          header.classList.remove('nav-open');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
