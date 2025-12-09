@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You - Manlift Bangalore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Raleway font -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --deep-brown: #521C0D;
+      --accent-orange: #FF9B45;
+      --accent-red: #D5451B;
+      --soft-cream: #F4E7E1;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Raleway", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,155,69,0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(82,28,13,0.14), transparent 60%),
+        var(--soft-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem;
+      color: var(--deep-brown);
+    }
+
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.4rem 2.3rem;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
+    }
+
+    .icon-circle {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 1.2rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, var(--accent-orange), var(--accent-red));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 2.4rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--deep-brown);
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.3rem;
+      color: rgba(82, 28, 13, 0.9);
+    }
+
+    .info {
+      font-size: 0.86rem;
+      margin-bottom: 1.8rem;
+      color: rgba(82, 28, 13, 0.92);
+    }
+
+    .info strong {
+      color: var(--deep-brown);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #b53414, var(--accent-orange));
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--deep-brown);
+      border: 1px solid rgba(82, 28, 13, 0.22);
+    }
+
+    .btn-outline:hover {
+      background: var(--deep-brown);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 2.1rem 1.7rem;
+      }
+
+      h1 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="icon-circle">✓</div>
+
+    <h1>Thank you for your enquiry!</h1>
+
+    <p>
+      Your lift rental enquiry has been submitted successfully.
+      Our Bangalore team will review your details and get back to you with
+      availability and pricing.
+    </p>
+
+    <div class="info">
+      Working hours: <strong>Mon – Sat, 9:00 AM – 7:00 PM</strong><br>
+      For urgent requirements, call <strong>+91 72000 45180</strong><br>
+      or email <strong>info@manliftbangalore.com</strong>.
+    </div>
+
+    <div class="btn-row">
+      <a href="form.html" class="btn btn-outline">Submit another enquiry</a>
+      <a href="index.html" class="btn btn-primary">Go to home</a>
+    </div>
+  </div>
+
+</body>
+</html>

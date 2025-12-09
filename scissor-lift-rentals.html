@@ -179,8 +179,8 @@
        SECTION 1: HERO WITH LARGE IMAGE
        ========================================================= */
     .hero-hero {
-       padding-top: 180px !important;
-      padding-bottom: 70px !important;
+       padding-top: 250px !important;
+      padding-bottom: 220px !important;
       position: relative;
       min-height: 380px;
       color: var(--white);
@@ -305,7 +305,7 @@
 
     .service-image-inner img {
       width: 100%;
-      height: 240px;
+      height: 540px;
       object-fit: cover;
     }
 
@@ -516,6 +516,65 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ===== HERO IMAGE + TEXT VISIBILITY SYSTEM ===== */
+
+/* Dark gradient overlay for text clarity */
+.hero-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.75) 40%,
+    rgba(0,0,0,0.55) 75%,
+    rgba(0,0,0,0.45) 100%
+  );
+  z-index: 1;
+}
+
+/* Keep content above overlay */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* Background image stays at back */
+.hero-hero img.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  z-index: 0;
+}
+
+/* Text shadow for perfect readability */
+.hero-copy h1,
+.hero-copy p,
+.hero-copy .pill-text,
+.hero-meta-box {
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.65),
+    0 0 2px rgba(0,0,0,0.35);
+}
+
+/* Meta box contrast */
+.hero-meta-box {
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  color: #fff;
+}
+
+/* Button pop shadow */
+.hero-copy .btn-primary {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+}
+
   </style>
 </head>
 <body>
@@ -530,12 +589,12 @@
          =============================================== -->
     <section class="section-full hero-hero">
       <!-- replace with your scissor hero image -->
-      <img src="assets/scissor-hero.jpg" alt="Scissor lift working at height" class="hero-bg">
+      <img src="./images/hb-03.jpg" alt="Scissor lift working at height" class="hero-bg">
 
       <div class="hero-overlay">
         <div class="hero-copy reveal reveal-left">
           <span class="pill-text">Scissor lift rentals in Bangalore</span>
-          <h1>
+          <h1 style="color: white;">
             Safe vertical access for indoor<br>
             and outdoor <span>scissor lift work</span>.
           </h1>
@@ -590,7 +649,7 @@
         <div class="service-image-card reveal reveal-right">
           <div class="service-image-inner">
             <!-- replace with indoor scissor image -->
-            <img src="assets/indoor-scissor.jpg" alt="Indoor electric scissor lift rental">
+            <img src="./images/ss10.jpg" alt="Indoor electric scissor lift rental">
           </div>
         </div>
       </div>
@@ -604,7 +663,7 @@
         <div class="service-image-card reveal reveal-left">
           <div class="service-image-inner">
             <!-- replace with rough terrain scissor image -->
-            <img src="assets/rough-terrain-scissor.jpg" alt="Rough terrain scissor lift rental">
+            <img src="./images/h-01.jpg" alt="Rough terrain scissor lift rental">
           </div>
         </div>
 
@@ -656,14 +715,14 @@
         <div class="apps-image-stack">
           <figure class="apps-figure">
             <!-- replace with image -->
-            <img src="assets/scissor-warehouse.jpg" alt="Scissor lift in warehouse">
+            <img src="./images/gb-02.jpg" alt="Scissor lift in warehouse">
             <figcaption class="apps-caption">
               Warehouse racking & inventory at height using compact electric scissors.
             </figcaption>
           </figure>
           <figure class="apps-figure">
             <!-- replace with image -->
-            <img src="assets/scissor-mall.jpg" alt="Scissor lift in shopping mall">
+            <img src="./images/s9.jpg" alt="Scissor lift in shopping mall">
             <figcaption class="apps-caption">
               Indoor maintenance and signage in malls with low-noise machines.
             </figcaption>

@@ -326,7 +326,17 @@
       .nav-logo-subtitle {
         font-size: 0.64rem;
       }
-    }
+    }.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 64px;   /* adjust to fit your header */
+  width: auto;
+  display: block;
+}
+
   </style>
 </head>
 <body>
@@ -335,13 +345,10 @@
     <div class="nav-wrapper">
       <div class="nav-inner">
         <!-- LEFT: LOGO -->
-        <a href="index.html" class="nav-logo">
-          <div class="nav-logo-mark">MB</div>
-          <div class="nav-logo-text">
-            <span class="nav-logo-title">Manlift Bangalore</span>
-            <span class="nav-logo-subtitle">Boom • Scissor • Man Lifts</span>
-          </div>
-        </a>
+       <a href="index.html" class="nav-logo">
+  <img src="./images/bb-logo.png" alt="Manlift Bangalore Logo" class="nav-logo-img">
+</a>
+
 
         <!-- CENTER: LINKS (DESKTOP/TABLET) -->
         <div class="nav-center">
@@ -360,7 +367,7 @@
             <span class="nav-call-label">Need a lift?</span>
             <span class="nav-call-number">+91 00000 00000</span>
           </div> -->
-          <a href="tel:+910000000000" class="nav-call-btn">
+          <a href="tel:+917200045180" class="nav-call-btn">
             Click here to call us
           </a>
         </div>
@@ -385,7 +392,7 @@
 
         <div class="mobile-divider"></div>
 
-        <a href="tel:+910000000000" class="nav-call-btn mobile-call-btn">
+        <a href="tel:+917200045180" class="nav-call-btn mobile-call-btn">
           Click here to call us
         </a>
 
